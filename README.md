@@ -7,7 +7,7 @@ Below steps to run this project
   b. MONGO_URL_COMMUNICATION_DB="mongodb://localhost:27017/bus-booking"
 4. npm run start
 5. to store dummy bus data run 
-  node src/scripts/busData.js
+  **node src/scripts/busData.js**
 
 sharing curls 
 1. Register user
