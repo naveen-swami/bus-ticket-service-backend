@@ -30,7 +30,19 @@ sharing curls
     "password": "welcome123"
   }'
 
-3. bus search 
+3. bus search
+
+  Endpoint: /api/buses/search
+  Description: Search for available buses.
+  Method: POST
+  Request Parameters:
+  
+  source (String): The source location or city from which you want to search for buses.
+  destination (String): The destination location or city to which you want to travel.
+  dateOfJourney (Date): The date of the journey.
+  passengers (Number): The number of passengers for whom you want to search for buses.
+
+   
  curl --location --request GET 'http://localhost:3000/api/buses/search' \
 --header 'Content-Type: application/json' \
 --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTNlN2E2NDQ3MWEyOTRlOTIwZDM5YzciLCJpYXQiOjE2OTg1OTkxNTksImV4cCI6MTY5ODYwMjc1OX0.s-epv6DyFvExbttD_yiRboRy8rbYARJs7uRbHlnXgKA' \
@@ -40,7 +52,18 @@ sharing curls
     "dateOfJourney": "2023-11-01T02:30:00.000+00:00"
   }'
 
-4. curl --location 'http://localhost:3000/api/buses/blockSeats' \
+5.
+
+  Endpoint: /api/seats/block
+Description: Block seats on a specific bus for a pending booking.
+Method: POST
+Request Parameters:
+
+busNumber (String): The unique identifier of the bus.
+passengers (Number): The number of passengers for whom you want to block seats.
+pickupPoint (String): The name of the pickup point or stop on the bus route.
+
+   curl --location 'http://localhost:3000/api/buses/blockSeats' \
 --header 'Content-Type: application/json' \
 --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTNlN2E2NDQ3MWEyOTRlOTIwZDM5YzciLCJpYXQiOjE2OTg1OTkxNTksImV4cCI6MTY5ODYwMjc1OX0.s-epv6DyFvExbttD_yiRboRy8rbYARJs7uRbHlnXgKA' \
 --data '{
@@ -49,7 +72,15 @@ sharing curls
     "pickupPoint": "Pune"
   }'
 
-5. curl --location 'http://localhost:3000/api/buses/bookTicket' \
+8.
+  Endpoint: /api/tickets/book
+Description: Book tickets with a blocking ID.
+Method: POST
+Request Parameters:
+
+blockingId (String): The unique identifier for the blocked seats.
+
+  curl --location 'http://localhost:3000/api/buses/bookTicket' \
 --header 'Content-Type: application/json' \
 --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTNlN2E2NDQ3MWEyOTRlOTIwZDM5YzciLCJpYXQiOjE2OTg1OTkxNTksImV4cCI6MTY5ODYwMjc1OX0.s-epv6DyFvExbttD_yiRboRy8rbYARJs7uRbHlnXgKA' \
 --data '{
@@ -66,6 +97,15 @@ sharing curls
 <img width="994" alt="image" src="https://github.com/naveen-swami/bus-ticket-service-backend/assets/59306400/5c2a4830-15fb-44a4-b2de-471a5df85d73">
 
 <img width="1004" alt="image" src="https://github.com/naveen-swami/bus-ticket-service-backend/assets/59306400/e14cdf94-5ea8-47d5-99ae-92a5969c36eb">
+
+<img width="1176" alt="image" src="https://github.com/naveen-swami/bus-ticket-service-backend/assets/59306400/acb46ccf-ee6d-4431-9763-2c5a4b1d4afb">
+
+<img width="1176" alt="image" src="https://github.com/naveen-swami/bus-ticket-service-backend/assets/59306400/a0b61065-3a3c-4101-9190-76e285eab320">
+
+<img width="1171" alt="image" src="https://github.com/naveen-swami/bus-ticket-service-backend/assets/59306400/ad297e19-799d-47c9-8759-644eb132f920">
+
+
+
 
 
 
