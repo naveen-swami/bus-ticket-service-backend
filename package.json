@@ -1,0 +1,16 @@
+{
+    "name": "bus-ticket-booking-app",
+    "version": "1.0.0",
+    "description": "A bus ticket booking system",
+    "main": "app.js",
+    "scripts": {
+        "start": "node ./src/app.js"
+    },
+    "author": "Naveen Swami",
+    "dependencies": {
+        "bcrypt": "^5.1.1",
+        "dotenv": "^16.3.1",
+        "express": "^4.17.1",
+        "mongoose": "^5.13.3"
+    }
+}
