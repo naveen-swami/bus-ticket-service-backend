@@ -54,7 +54,7 @@ sharing curls
 
 5. Block seats
 
-  Endpoint: /api/seats/block
+  Endpoint: /api/buses/blockSeats
 Description: Block seats on a specific bus for a pending booking.
 Method: POST
 Request Parameters:
@@ -73,7 +73,7 @@ pickupPoint (String): The name of the pickup point or stop on the bus route.
   }'
 
 8. Book Seat
-  Endpoint: /api/tickets/book
+  Endpoint: /api/buses/bookTicket
 Description: Book tickets with a blocking ID.
 Method: POST
 Request Parameters:
