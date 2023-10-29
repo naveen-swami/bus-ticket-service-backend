@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 // Import controllers
 const userController = require('./controller/userController');
 const busController = require('./controller/busController');
+const authenticate = require('./middleware/authMiddleware');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -19,19 +20,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // User registration
-app.post('/api/register', userController.register);
+app.post('/api/users/register', userController.register);
 
 // User login
-app.post('/api/login', userController.login);
+app.post('/api/users/login', userController.login);
 
 // Bus search
-app.get('/api/buses/search', busController.searchBuses);
+app.get('/api/buses/search',authenticate,  busController.searchBuses);
 
 // Route to block seats on a bus
-app.post('/api/buses/blockSeats', busController.blockSeats);
+app.post('/api/buses/blockSeats',authenticate,  busController.blockSeats);
 
 // Route to book tickets based on a blocking ID
-app.post('/api/buses/bookTicket', busController.bookTicket);
+app.post('/api/buses/bookTicket',authenticate, busController.bookTicket);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

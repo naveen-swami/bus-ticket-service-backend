@@ -1,6 +1,11 @@
-// Import necessary modules
-const Bus = require('../models/Bus');
-const Booking = require('../models/Booking');
+const Bus = require('../db/model/busModel'); // Assuming you have a Bus model
+const Booking = require('../db/model/bookingModel'); // Assuming you have a Booking model
+
+const bookingStatus = {
+  pending: 'pending',
+  booked: 'booked',
+  canceled: "canceled"
+};
 
 // Service for searching buses
 exports.searchBuses = async (source, destination, dateOfJourney) => {
@@ -19,14 +24,11 @@ exports.searchBuses = async (source, destination, dateOfJourney) => {
 // Service for blocking seats
 exports.blockSeats = async (numPassengers, busId, pickupPoint) => {
   try {
-    // Implement your logic to block seats here
-    // Create a new Booking record and update the Bus record accordingly
 
     const booking = new Booking({
       bus: busId,
       pickupPoint,
       numPassengers,
-      // Add other relevant details
     });
 
     await booking.save();
@@ -39,16 +41,16 @@ exports.blockSeats = async (numPassengers, busId, pickupPoint) => {
 // Service for booking tickets
 exports.bookTicket = async (bookingId) => {
   try {
-    // Implement your logic to book tickets here
-    // Update the Booking record with booking status
 
-    const booking = await Booking.findById(bookingId);
+    const booking = await Booking.findOneAndUpdate(
+      { _id: bookingId },
+      { bookingStatus: bookingStatus.booked },
+      { new: true }
+    );
 
     if (!booking) {
       throw new Error('Booking not found');
     }
-
-    // Update booking status to "booked" or something similar
 
     return booking._id;
   } catch (error) {
