@@ -52,7 +52,7 @@ sharing curls
     "dateOfJourney": "2023-11-01T02:30:00.000+00:00"
   }'
 
-5.
+5. Block seats
 
   Endpoint: /api/seats/block
 Description: Block seats on a specific bus for a pending booking.
@@ -72,7 +72,7 @@ pickupPoint (String): The name of the pickup point or stop on the bus route.
     "pickupPoint": "Pune"
   }'
 
-8.
+8. Book Seat
   Endpoint: /api/tickets/book
 Description: Book tickets with a blocking ID.
 Method: POST
