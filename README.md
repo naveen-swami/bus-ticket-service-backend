@@ -2,7 +2,7 @@
 Below steps to run this project
 1. npm install
 2. run mongodb
-3. add two files in .env file at root label
+3. add two variables in .env file at root label
   a. JWT_SECRET="buildScalableSystem"
   b. MONGO_URL_COMMUNICATION_DB="mongodb://localhost:27017/bus-booking"
 4. npm run start
